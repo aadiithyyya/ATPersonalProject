@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function LoveNotes() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() => {
+    // Retrieve from localStorage if available
+    const savedNotes = localStorage.getItem('loveNotes');
+    return savedNotes ? JSON.parse(savedNotes) : [];
+  });
   const [input, setInput] = useState('');
+
+  useEffect(() => {
+    // Save the notes to localStorage whenever they change
+    localStorage.setItem('loveNotes', JSON.stringify(notes));
+  }, [notes]);
 
   const addNote = () => {
     if (input.trim() !== '') {
@@ -20,7 +29,7 @@ function LoveNotes() {
         onChange={(e) => setInput(e.target.value)}
         placeholder="Write something cute..."
       />
-      <button onClick={addNote}>send 💖</button>
+      <button onClick={addNote}>Send 💖</button>
 
       <div className="notes-list">
         {notes.map((note, index) => (
