@@ -1,8 +1,10 @@
+// Feature4.jsx
 import React, { useEffect, useState } from 'react';
 import MessagePopup from '../components/MessagePopup';
 import { collection, onSnapshot, addDoc, deleteDoc, doc, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
-
+import '../styles/Feature4.css';
+ 
 function Feature4() {
   const [messages, setMessages] = useState([]);
   const [newText, setNewText] = useState('');
@@ -33,40 +35,24 @@ function Feature4() {
   };
 
   return (
-    <div style={{ padding: '2rem', textAlign: 'center', fontFamily: 'cursive' }}>
-      <h2 style={{ marginBottom: '1rem' }}>💌 Sweet Chat Popups</h2>
-      <div style={{ marginBottom: '1.5rem' }}>
+    <div className="feature4-container">
+      <h2>TharaChat</h2>
+      <div className="input-group">
         <input
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
-          placeholder="Write something cute..."
-          style={{
-            padding: '0.6rem 1rem',
-            borderRadius: '20px',
-            border: '1px solid #ddd',
-            outline: 'none',
-            width: '60%',
-          }}
+          placeholder="Yap here"
+          onKeyDown={(e) => { if (e.key === 'Enter') sendMessage(); }}
+          className="chat-input"
         />
-        <button
-          onClick={sendMessage}
-          style={{
-            marginLeft: '1rem',
-            background: '#ffb6c1',
-            border: 'none',
-            borderRadius: '20px',
-            padding: '0.6rem 1.2rem',
-            color: 'white',
-            cursor: 'pointer',
-          }}
-        >
-          Send 💖
-        </button>
+        <button onClick={sendMessage} className="send-button">Send 👆🏻</button>
       </div>
 
-      {messages.map((msg, idx) => (
-        <MessagePopup key={msg.id} message={msg} onDelete={deleteMessage} />
-      ))}
+      <div className="messages-list">
+        {messages.map((msg) => (
+          <MessagePopup key={msg.id} message={msg} onDelete={deleteMessage} />
+        ))}
+      </div>
     </div>
   );
 }

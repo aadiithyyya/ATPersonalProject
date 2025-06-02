@@ -1,68 +1,121 @@
-/* Global Styles */
-body {
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+
+:root {
+  /* Color Theme */
+  --color-bg: #0e0e0e;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-primary: #b388ff;
+  --color-accent: #ee90b0;
+  --color-highlight: #fce4ec;
+  --color-light: #ffffff;
+  --color-dark: #1e1e1e;
+
+  /* Typography */
+  --font-main: 'Outfit', 'Helvetica Neue', sans-serif;
+
+  /* UI Elements */
+  --radius: 18px;
+  --shadow-glow: 0 0 20px rgba(179, 136, 255, 0.25);
+  --shadow-hover: 0 0 40px rgba(179, 136, 255, 0.3);
+  --transition: all 0.3s ease;
+}
+
+/* Global Reset */
+html, body {
   margin: 0;
-  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-  background-color: #f8f7fc;
-  color: #333;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-light);
+  overflow-x: hidden;
+}
+
+#root {
   min-height: 100vh;
-  transition: background 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-/* App Container */
+/* Main App Container */
 .App {
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
   padding: 2rem;
+  box-sizing: border-box;
   text-align: center;
+  background: linear-gradient(135deg, #1a012d, #0e0e0e);
+  background-attachment: fixed;
 }
 
-/* Header */
+/* Header Section */
 .header {
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #fef4ff, #fceeff);
-  border-radius: 25px;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, rgba(179, 136, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border-radius: var(--radius);
   margin-bottom: 2rem;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-glow);
   animation: fadeIn 1s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Sections */
+/* Responsive Card Sections */
+.counter, .love-notes, .mood-slider, .share-page {
+  background: var(--color-card);
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 2rem;                        /* Better inner spacing */
+  margin: 2rem auto;                    /* Center horizontally */
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition);
+  width: 100%;
+  max-width: 1000px;                    /* Desktop width cap */
+  box-sizing: border-box;
 }
 
-
-/* Card Components */
-.counter, .love-notes {
-  background: #ffffff;
-  border: 1px solid #eaeaea;
-  border-radius: 20px;
-  padding: 2rem;
-  margin: 1.5rem 0;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.counter:hover, .love-notes:hover {
+/* Hover Effects */
+.counter:hover,
+.love-notes:hover,
+.share-page:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-hover);
 }
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 768px) {
+  .counter, .love-notes, .mood-slider, .share-page {
+    padding: 1.2rem 1rem;
+    margin: 1rem 0rem;
+    max-width: 100%;                   /* Full width on small screens */
+  }
+}
+
 
 /* Buttons */
 button {
-  background-color: #a084dc;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-light);
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 50px;
   border: none;
   cursor: pointer;
   margin: 0.5rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: var(--transition);
 }
 
 button:hover {
-  background-color: #8c6ee8;
+  background-color: var(--color-accent);
   transform: scale(1.05);
 }
 
@@ -70,15 +123,17 @@ button:hover {
 input {
   width: 70%;
   padding: 0.8rem 1rem;
-  border: 2px solid #ddd;
+  border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 40px;
   font-size: 1rem;
-  transition: border 0.3s ease;
-  margin-right: 1rem;
+  background: transparent;
+  color: var(--color-light);
+  transition: var(--transition);
+  margin: 0.5rem;
 }
 
 input:focus {
-  border-color: #a084dc;
+  border-color: var(--color-primary);
   outline: none;
 }
 
@@ -88,46 +143,80 @@ input:focus {
 }
 
 .note {
-  background-color: #f1ebff;
-  color: #555;
+  background-color: rgba(179, 136, 255, 0.1);
+  color: var(--color-light);
   font-size: 1rem;
   font-weight: 500;
   padding: 1rem;
   margin: 0.5rem auto;
   width: 80%;
   border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(160, 132, 220, 0.1);
+  box-shadow: var(--shadow-glow);
 }
 
 /* Share Page */
-.share-page {
-  margin-top: 2rem;
-}
-
 .share-page button {
   padding: 0.9rem 2rem;
   font-size: 1rem;
-  background-color: #bface2;
-  color: white;
+  background-color: var(--color-highlight);
+  color: var(--color-dark);
   border-radius: 50px;
-  box-shadow: 0 5px 15px rgba(160, 132, 220, 0.2);
+  box-shadow: 0 5px 15px rgba(179, 136, 255, 0.3);
 }
 
 .share-page button:hover {
-  background-color: #9e7ee7;
+  background-color: var(--color-accent);
+  color: white;
   transform: scale(1.05);
 }
 
-/* Cute Icons (Optional – insert via <img> or emoji near buttons/headers) */
+/* Mood Slider */
+.mood-slider h3 {
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.mood-slider input[type="range"] {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 10px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6a4f9c 0%, #cba0ff 100%);
+  outline: none;
+}
+
+.mood-slider input[type="range"]::-webkit-slider-thumb,
+.mood-slider input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--color-primary);
+  border: 2px solid var(--color-primary);
+  margin-top: -7px;
+}
+
+/* Icon in Text */
 .icon {
   margin-right: 0.5rem;
   vertical-align: middle;
 }
 
-/* Responsive */
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .App {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    min-height: 100dvh;
+    background: linear-gradient(135deg, #1a012d, #0e0e0e);
   }
 
   input {
@@ -138,42 +227,8 @@ input:focus {
   .note {
     width: 90%;
   }
-}
 
-/* Add to App.css or wherever you want */
-
-.mood-slider h3 {
-  color: #6a4f9c;
-  font-weight: 500;
-}
-
-.mood-slider input[type="range"] {
-  -webkit-appearance: none;
-  height: 10px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #6a4f9c 0%, #cba0ff 100%);
-  outline: none;
-}
-
-.mood-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-  box-shadow: 0 0 5px #6a4f9c;
-  border: 2px solid #6a4f9c;
-  margin-top: -7px; /* Center thumb vertically */
-}
-
-.mood-slider input[type="range"]::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-  box-shadow: 0 0 5px #6a4f9c;
-  border: 2px solid #6a4f9c;
+  .counter, .love-notes, .mood-slider, .share-page {
+    padding: 1.5rem;
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig'; // adjust import as needed
+import '../styles/MoodSlider.css';
 
 function MoodSlider() {
   const [mood, setMood] = useState(5); // Default middle

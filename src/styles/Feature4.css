@@ -1,0 +1,112 @@
+/* feature4.css */
+
+.feature4-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1a142a;
+  border-radius: 16px;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ddd;
+  text-align: center;
+  box-shadow: 0 0 10px #6a3fff66;
+}
+
+.feature4-container h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #9155ff;
+  text-shadow: 0 0 8px #9155ff88;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.chat-input {
+  flex-grow: 1;
+  max-width: 70%;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  border: 1.5px solid #6a3fff;
+  background-color: #2a2140;
+  color: #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.chat-input::placeholder {
+  color: #7d6cffaa;
+}
+
+.chat-input:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 10px #c084fc99;
+  background-color: #3a2f55;
+}
+
+.send-button {
+  padding: 0.65rem 1.5rem;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, #8c52ff, #ba8aff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #c084fc88;
+}
+
+.send-button:hover {
+  background: linear-gradient(135deg, #ba8aff, #8c52ff);
+  box-shadow: 0 0 15px #d28cffcc;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-message {
+  background-color: #2a2140;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  max-width: 85%;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #d9ccff;
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 0 8px #6a3fff88;
+  transition: box-shadow 0.3s ease;
+  position: relative; /* ensure delete-button stays inside properly */
+  z-index: 1;
+}
+
+.popup-message:hover {
+  box-shadow: 0 0 16px #9155ffcc;
+}
+
+.delete-button {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #b39cff;
+  font-size: 1rem;
+  z-index: 2; /* keeps it above the message */
+  transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+  color: #4a21983c;
+}

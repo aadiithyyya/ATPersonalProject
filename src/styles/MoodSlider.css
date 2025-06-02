@@ -1,0 +1,20 @@
+.mood-slider {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.mood-slider h3 {
+  font-size: 1.2rem;
+  color: var(--color-purple);
+}
+
+.mood-slider input[type="range"] {
+  width: 80%;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.mood-slider p {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}

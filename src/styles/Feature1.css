@@ -1,0 +1,32 @@
+.feature1-container {
+  width: 100%;
+  max-width: 1000px;        /* 🔹 Limits the width on large screens */
+  margin: 2rem auto;         /* 🔹 Centers horizontally */
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+/* Responsive Typography */
+.feature1-container h2 {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* Optional: Extra tweaks for mobile */
+@media (max-width: 768px) {
+  .feature1-container {
+    padding: 1.5rem 1rem;      /* tighter padding for mobile */
+    margin: 1rem 1rem;
+  }
+
+  .feature1-container h2 {
+    font-size: 1.4rem;        /* smaller heading for mobile */
+  }
+}

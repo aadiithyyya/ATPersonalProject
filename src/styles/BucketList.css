@@ -1,0 +1,123 @@
+/* BucketList.css */
+
+.bucket-list {
+  max-width: 480px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #702646;
+}
+
+.bucket-list h2 {
+  color: #c94f7c;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px #c94f7c88;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.input-group input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #c94f7c;
+  background: transparent;
+  color: #702646;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input[type="text"]::placeholder {
+  color: #cda0b1;
+}
+
+.input-group input[type="text"]:focus {
+  border-color: #e37aa4;
+  box-shadow: 0 0 8px #e37aa4aa;
+}
+
+.input-group button {
+  background-color: #c94f7c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+  background-color: #e37aa4;
+}
+
+.no-items {
+  text-align: center;
+  color: #a93a68;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.bucket-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.bucket-list li {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background-color: #fff0f6;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+.bucket-list li.done {
+  background-color: #fce4ec;
+  box-shadow: inset 0 0 5px #c94f7c88;
+}
+
+.bucket-list li input[type="checkbox"] {
+  margin-right: 12px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.bucket-list li span {
+  flex-grow: 1;
+  font-size: 1rem;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.bucket-list li.done span {
+  text-decoration: line-through;
+  color: #a93a68;
+}
+
+.bucket-list li:not(.done) span {
+  color: #702646;
+}
+
+.bucket-list li button.remove-btn {
+  background: transparent;
+  border: none;
+  color: #c94f7c;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 12px;
+  transition: color 0.3s ease;
+}
+
+.bucket-list li button.remove-btn:hover {
+  color: #e37aa4;
+}

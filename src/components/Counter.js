@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig'; // adjust path as needed
+import '../styles/Counter.css';
+// (rest remains the same, remove inline styles)
 
 function Counter() {
   const [count, setCount] = useState(0);

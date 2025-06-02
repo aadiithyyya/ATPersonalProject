@@ -1,0 +1,39 @@
+.counter {
+  text-align: center;
+}
+
+.counter h2 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+}
+
+.counter p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.counter button {
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.counter button:first-of-type {
+  background: var(--color-accent);
+  color: white;
+}
+
+.counter button:last-of-type {
+  background: var(--color-light);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.counter button:hover {
+  transform: scale(1.05);
+}

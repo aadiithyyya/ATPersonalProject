@@ -1,28 +1,103 @@
 .navbar {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 1rem 0;
-  border-radius: 15px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 0 25px rgba(179, 136, 255, 0.2);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .nav-link {
+  position: relative;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
-  color: #6a0dad;
-  transition: color 0.3s ease;
+  color: #d8b6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔧 ensures center alignment */
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  width: fit-content; /* prevents overflow in desktop */
 }
 
-.nav-link.active {
-  color: #a020f0;
-  font-weight: 600;
-  text-decoration: underline;
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 80%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  background-color: #b388ff;
+  transform: scaleX(0.5); /* fixed 0.92 → 1 for alignment */
 }
 
 .nav-link:hover {
-  color: #a020f0;
+  width: 250px;
+  color: #ffffff;
+  background: rgba(179, 136, 255, 0.1);
+  box-shadow: 0 0 10px rgba(179, 136, 255, 0.2);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+  color: #cda4ff;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover .nav-icon,
+.nav-link.active .nav-icon {
+  color: #ffffff;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    margin: 1rem auto;
+    align-items: center; /* 🟣 ensures nav items center vertically */
+  }
+
+  .nav-link {
+    width: 100%; /* makes each nav link full width */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-link::after {
+    left: 50%;
+    transform: translateX(-50%) scaleX(0); /* center underline */
+    transform-origin: center;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: translateX(-50%) scaleX(1); /* full centered underline on mobile */
+  }
 }
