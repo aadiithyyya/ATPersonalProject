@@ -1,22 +1,21 @@
 import React from 'react';
-import Counter from './components/Counter';
-import LoveNotes from './components/LoveNotes';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import SharePage from './components/SharePage';
+import Navbar from './components/Navbar';
+import Feature1 from './pages/Feature1';
+import Feature2 from './pages/Feature2';
+import Feature3 from './pages/Feature3';
 
 function App() {
-  const handleRefreshAll = () => {
-    localStorage.clear();  // Clears all stored values
-    window.location.reload();  // Optionally reloads the page
-  };
-
   return (
     <div className="App">
       <Header />
-      <button onClick={handleRefreshAll}>Clear All Data 🔄</button>
-      <Counter />
-      <LoveNotes />
-      <SharePage />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Feature1 />} />
+        <Route path="/feature2" element={<Feature2 />} />
+        <Route path="/feature3" element={<Feature3 />} />
+      </Routes>
     </div>
   );
 }
