@@ -54,13 +54,7 @@ function Feature2() {
               className="memory-textarea"
               spellCheck={false}
             />
-            <button
-              onClick={() => handleDeleteEvent(event.id)}
-              className="memory-delete-btn"
-              title="Delete this event"
-            >
-              &times;
-            </button>
+            
           </div>
         ))}
       </div>
