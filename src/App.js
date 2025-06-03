@@ -9,6 +9,8 @@ import Feature2 from './pages/Feature2';
 import Feature3 from './pages/Feature3';
 import Feature4 from './pages/Feature4';
 import Login from './components/Login';
+import CouplePolls from './pages/CouplePolls';
+// inside <Routes>
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,6 +38,8 @@ function App() {
             <Route path="/feature3" element={<Feature3 />} />
             <Route path="/feature4" element={<Feature4 />} />
             <Route path="*" element={<Navigate to="/" />} />
+            <Route path="/polls" element={<CouplePolls />} />
+
           </Routes>
         </>
       ) : (

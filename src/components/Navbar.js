@@ -18,6 +18,9 @@ const Navbar = () => {
       <NavLink to="/feature4" className="nav-link">
         <FaCommentDots className="nav-icon" /> YapZone
       </NavLink>
+      <NavLink to="/polls" className="nav-link">
+        <FaCommentDots className="nav-icon" /> What to Do?
+      </NavLink>
     </nav>
   );
 };

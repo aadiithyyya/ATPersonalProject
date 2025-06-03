@@ -1,0 +1,70 @@
+.pollform-container {
+  width: 83%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+.pollform-form h2 {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.pollform-form input {
+  width: 80%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.pollform-form input::placeholder {
+  color: #ccc;
+}
+
+.pollform-form button {
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0.5rem 0 0;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pollform-form button:hover {
+  background-color: #3b82f6cc;
+}
+
+.add-option {
+  background-color: #6d28d9; /* purple for distinction */
+}
+
+.poll-error {
+  color: #ff6b6b;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .pollform-container {
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .pollform-form h2 {
+    font-size: 1.4rem;
+  }
+}
